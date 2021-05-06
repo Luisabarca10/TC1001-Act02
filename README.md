@@ -16,6 +16,7 @@ movimiento con las flechas.
 - colores aleatorios al iniciar el juego
 
 #### [Luis Abarca](https://github.com/Luisabarca10)
+- la comida se mueve aleatoriamente
 
 ## referencias
 
