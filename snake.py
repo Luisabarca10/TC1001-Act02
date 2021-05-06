@@ -12,10 +12,11 @@ Exercises
 from turtle import *
 from random import randrange
 from freegames import square, vector
-
+import random
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+tick = 0
 
 def change(x, y):
     "Change snake direction."
@@ -27,6 +28,7 @@ def inside(head):
     return -200 < head.x < 190 and -200 < head.y < 190
 
 def move():
+    global tick
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
@@ -44,6 +46,28 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
+
+
+        #mover comida
+        tick += 1
+        if tick >= 20:
+            tick = 0
+            # mover
+            dirs = ['left', 'right', 'up', 'down']
+            dir = random.choice(dirs)
+            if dir == 'left':
+                if food.x > -190:
+                    food.x -= 10
+            elif dir == 'right':
+                if food.x < 200:
+                    food.x += 10
+            elif dir == 'up':
+                if food.y < 200:
+                    food.y += 10
+            elif dir == 'down':
+                if food.y > -190:
+                    food.y -= 10 
+
 
     clear()
 
